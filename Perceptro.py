@@ -8,6 +8,7 @@ class Perceptron:
         self.num = num
         self.taxa = taxa
         self.gerarXy()
+        self.somatório(0)
 
     def gerarXy(self):
         iris = datasets.load_iris()
@@ -24,11 +25,16 @@ class Perceptron:
     def somatório(self, i):
         j = 0
         pesos = []
-        atributos = []
+        pesosTotais = []
+        soma = 0
         if(i ==0):
+            teta = -1
             while(j != len(self.X)):
-                atributos.append(self.X[j][0])
-                pesos.append(rd.uniform())
+                for k in range(4):
+                    pesos.append(round(rd.uniform(-1, 1), 2))
+                    soma += self.X[j][k]*pesos[k]
+                soma += teta 
+
 
 
 
